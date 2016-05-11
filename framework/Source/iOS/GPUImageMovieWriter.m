@@ -477,7 +477,7 @@ static BOOL synchronizedSetInputFramebuffer = YES;
         {
             [assetWriter startWriting];
         }
-        videoQueue = dispatch_queue_create("com.sunsetlakesoftware.GPUImage.videoReadingQueue", NULL);
+        videoQueue = dispatch_queue_create("com.sunsetlakesoftware.GPUImage.videoReadingQueue", GPUImageDefaultQueueAttribute());
         [assetWriterVideoInput requestMediaDataWhenReadyOnQueue:videoQueue usingBlock:^{
             if( _paused )
             {
@@ -506,7 +506,7 @@ static BOOL synchronizedSetInputFramebuffer = YES;
     
     if (audioInputReadyCallback != NULL)
     {
-        audioQueue = dispatch_queue_create("com.sunsetlakesoftware.GPUImage.audioReadingQueue", NULL);
+        audioQueue = dispatch_queue_create("com.sunsetlakesoftware.GPUImage.audioReadingQueue", GPUImageDefaultQueueAttribute());
         [assetWriterAudioInput requestMediaDataWhenReadyOnQueue:audioQueue usingBlock:^{
             if( _paused )
             {
